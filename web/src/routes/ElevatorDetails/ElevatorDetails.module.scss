@@ -1,0 +1,16 @@
+.table {
+    margin-bottom: 0px !important;
+}
+.backButton {
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #000 !important;
+    padding-left: 0px;
+    &:hover, &:active {
+        background-color: transparent !important;
+        border: none !important;
+        text-decoration: none !important;
+        color: #000 !important;
+    }
+}
