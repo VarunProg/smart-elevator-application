@@ -78,7 +78,7 @@ Please refer to the installation and configuration instructions in the README fo
 # Setup project in local enviornment
 1. Git Clone Repo in local from url using below command
    ```bash
-   git clone []
+   git clone [https://github.com/VarunProg/smart-elevator-application.git]
    ```
 ### Setup in local development enviornment with enviornment config
 ## open 2 terminal one for web and one for server 
