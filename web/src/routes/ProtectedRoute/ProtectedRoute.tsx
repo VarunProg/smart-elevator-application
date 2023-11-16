@@ -1,10 +1,21 @@
-// ProtectedRoute.tsx
-import React from 'react';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
-import { Navigate, Outlet } from 'react-router-dom';
+import React, { FC, useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Navigate, Outlet } from "react-router-dom";
 
-export const ProtectedRoute = ({ children }) => {
-  //return <>{withAuthenticationRequired(children, { onRedirecting: () => <div>Loading...</div> })}</>;
+export const ProtectedRoute: FC = () => {
+  const { isAuthenticated, isLoading } = useAuth0();
+  const [isAuthResolved, setAuthResolved] = useState(false);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setAuthResolved(true);
+    }
+  }, [isAuthenticated, isLoading]);
+
+  if (!isAuthResolved) {
+    return <div>Loading...</div>;
+  }
+
+  let auth = { token: isAuthenticated };
+  return auth.token ? <Outlet /> : <Navigate to="/login" />;
 };
-
-
